@@ -44,11 +44,14 @@ export function PackageCard({ pkg, className }: { pkg: TourPackage; className?: 
         <p className="mt-1 text-sm text-ink/60">{pkg.route}</p>
 
         <div className="mt-3 flex flex-wrap gap-1.5">
-          {pkg.tags.slice(0, 2).map((t) => (
-            <Badge key={t} tone="outline">
-              {t}
-            </Badge>
-          ))}
+          {pkg.tags
+            .filter((t) => t !== pkg.badge)
+            .slice(0, 2)
+            .map((t) => (
+              <Badge key={t} tone="outline">
+                {t}
+              </Badge>
+            ))}
         </div>
 
         <div className="mt-4 flex items-end justify-between border-t border-line pt-4">
