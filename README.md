@@ -8,17 +8,26 @@ the reference build.
 
 ## Status
 
-**Phase 1 — Homepage + foundation (in review).**
-
 - ✅ Design system, tokens, fonts, logo processing (transparent, symbol-only, favicons)
 - ✅ Homepage with the full improved hierarchy + animations
-- ✅ Content data layer (destinations, packages, activities, services, events, testimonials)
-- ✅ Enquiry API (validates + logs), Contact page, SEO (metadata, sitemap, robots, JSON-LD)
-- ⏳ Public detail pages (destinations, packages, activities, events, services, about)
+- ✅ All public pages (destinations + detail, packages + detail with itineraries, activities, events, services, about, contact)
+- ✅ SEO (metadata, sitemap, robots, organization + tour JSON-LD)
+- ✅ Supabase database (schema + RLS + seed), enquiry persistence, auth-protected **admin panel**
 - ⏳ Booking flow → Razorpay payments
-- ⏳ Supabase database + auth-protected admin panel
 
 See `DESIGN.md` for the design system and `CREDITS.md` for image licensing.
+
+## Supabase setup (database + admin)
+
+The site runs without Supabase (content falls back to `src/data`). To enable lead capture and the admin panel:
+
+1. Create a project at [supabase.com](https://supabase.com). Copy the URL, `anon` key, and `service_role` key into `.env.local` (see `.env.example`).
+2. Run the schema: paste `supabase/migrations/0001_init.sql` into the Supabase **SQL editor** and run it (or `supabase db push`).
+3. Seed the content: `npm run seed` (loads the 14 packages, destinations, etc.).
+4. Create an admin user: Supabase dashboard → **Authentication → Users → Add user** (email + password). That account signs in at `/admin`.
+5. Restart `npm run dev`. Visit **/admin**.
+
+The admin panel: dashboard (KPIs + recent enquiries), Enquiries (with status), Bookings, and Packages (edit price/badge/featured/bestseller/published — live on the site instantly).
 
 ## Getting started
 

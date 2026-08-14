@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { SlidersHorizontal } from "lucide-react";
-import { packages, packageRegions, packageTypes } from "@/data/packages";
+import type { TourPackage } from "@/data/packages";
 import { PackageCard } from "@/components/ui/PackageCard";
 import { cn } from "@/lib/utils";
 
@@ -16,7 +16,17 @@ const sorts: { value: Sort; label: string }[] = [
   { value: "duration", label: "Duration" },
 ];
 
-export function PackagesExplorer({ initialRegion = "All" }: { initialRegion?: string }) {
+export function PackagesExplorer({
+  packages,
+  regions,
+  types,
+  initialRegion = "All",
+}: {
+  packages: TourPackage[];
+  regions: string[];
+  types: string[];
+  initialRegion?: string;
+}) {
   const [region, setRegion] = useState(initialRegion);
   const [type, setType] = useState("All");
   const [sort, setSort] = useState<Sort>("featured");
@@ -44,8 +54,8 @@ export function PackagesExplorer({ initialRegion = "All" }: { initialRegion?: st
     <>
       <div className="sticky top-16 z-30 -mx-5 border-y border-line bg-cloud/90 px-5 py-4 backdrop-blur-md lg:top-20">
         <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-          <FilterRow label="Region" active={region} setActive={setRegion} options={["All", ...packageRegions]} />
-          <FilterRow label="Type" active={type} setActive={setType} options={["All", ...packageTypes]} />
+          <FilterRow label="Region" active={region} setActive={setRegion} options={["All", ...regions]} />
+          <FilterRow label="Type" active={type} setActive={setType} options={["All", ...types]} />
           <label className="ml-auto flex items-center gap-2 text-sm">
             <SlidersHorizontal size={15} className="text-ink/50" aria-hidden />
             <span className="sr-only">Sort by</span>

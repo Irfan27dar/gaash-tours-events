@@ -2,16 +2,15 @@
 
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { packages, packageRegions } from "@/data/packages";
+import type { TourPackage } from "@/data/packages";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { PackageCard } from "@/components/ui/PackageCard";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
-const filters = ["All", ...packageRegions] as const;
-
-export function PopularPackages() {
-  const [active, setActive] = useState<(typeof filters)[number]>("All");
+export function PopularPackages({ packages }: { packages: TourPackage[] }) {
+  const filters = ["All", ...Array.from(new Set(packages.map((p) => p.region)))];
+  const [active, setActive] = useState<string>("All");
 
   const shown = useMemo(() => {
     const list = active === "All" ? packages : packages.filter((p) => p.region === active);

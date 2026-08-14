@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Check, Clock, ArrowRight } from "lucide-react";
-import { bestsellerPackage } from "@/data/packages";
+import type { TourPackage } from "@/data/packages";
 import { img } from "@/lib/images";
 import { inr } from "@/lib/utils";
 import { Reveal } from "@/components/ui/Reveal";
@@ -8,8 +8,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Stars } from "@/components/ui/Stars";
 import { Button } from "@/components/ui/Button";
 
-export function FeaturedPackage() {
-  const pkg = bestsellerPackage;
+export function FeaturedPackage({ pkg }: { pkg: TourPackage }) {
   return (
     <section className="py-16 sm:py-20">
       <div className="container">

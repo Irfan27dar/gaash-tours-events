@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { PackagesExplorer } from "@/components/sections/PackagesExplorer";
+import { getPackages, getPackageFilters } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Tour Packages",
@@ -8,11 +9,12 @@ export const metadata: Metadata = {
     "Browse Gaash tour packages across Kashmir, Ladakh, Rajasthan, Himachal and Amritsar — with day-by-day itineraries and transparent pricing.",
 };
 
-export default function PackagesPage({
+export default async function PackagesPage({
   searchParams,
 }: {
   searchParams: { region?: string };
 }) {
+  const [packages, filters] = await Promise.all([getPackages(), getPackageFilters()]);
   return (
     <>
       <PageHeader
@@ -24,7 +26,12 @@ export default function PackagesPage({
       />
       <section className="bg-cloud pb-20 pt-6">
         <div className="container">
-          <PackagesExplorer initialRegion={searchParams.region ?? "All"} />
+          <PackagesExplorer
+            packages={packages}
+            regions={filters.regions}
+            types={filters.types}
+            initialRegion={searchParams.region ?? "All"}
+          />
         </div>
       </section>
     </>

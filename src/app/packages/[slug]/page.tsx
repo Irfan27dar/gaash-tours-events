@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Check, X, MapPin, Sparkles } from "lucide-react";
-import { packages, getPackage } from "@/data/packages";
+import { packages as staticPackages } from "@/data/packages";
+import { getPackage, getPackages } from "@/lib/content";
 import { img } from "@/lib/images";
 import { site } from "@/data/site";
 import { PageHeader } from "@/components/ui/PageHeader";
@@ -13,12 +14,14 @@ import { BookingCard } from "@/components/sections/BookingCard";
 import { EnquiryForm } from "@/components/sections/EnquiryForm";
 import { PackageCard } from "@/components/ui/PackageCard";
 
+export const revalidate = 60;
+
 export function generateStaticParams() {
-  return packages.map((p) => ({ slug: p.slug }));
+  return staticPackages.map((p) => ({ slug: p.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const pkg = getPackage(params.slug);
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const pkg = await getPackage(params.slug);
   if (!pkg) return {};
   return {
     title: pkg.title,
@@ -27,11 +30,12 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function PackagePage({ params }: { params: { slug: string } }) {
-  const pkg = getPackage(params.slug);
+export default async function PackagePage({ params }: { params: { slug: string } }) {
+  const pkg = await getPackage(params.slug);
   if (!pkg) notFound();
 
-  const related = packages
+  const all = await getPackages();
+  const related = all
     .filter((p) => p.slug !== pkg.slug && (p.region === pkg.region || p.type === pkg.type))
     .slice(0, 3);
 

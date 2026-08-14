@@ -2,10 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import { site } from "@/data/site";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
-import { PageTransition } from "@/components/layout/PageTransition";
+import { SiteFrame } from "@/components/layout/SiteFrame";
 
 const display = Playfair_Display({
   subsets: ["latin"],
@@ -88,10 +85,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
         />
-        <Header />
-        <PageTransition>{children}</PageTransition>
-        <Footer />
-        <WhatsAppFloat />
+        <SiteFrame>{children}</SiteFrame>
       </body>
     </html>
   );

@@ -11,8 +11,13 @@ import { Testimonials } from "@/components/sections/Testimonials";
 import { Gallery } from "@/components/sections/Gallery";
 import { CTABand } from "@/components/sections/CTABand";
 import { Newsletter } from "@/components/sections/Newsletter";
+import { getPackages, getBestsellerPackage } from "@/lib/content";
 
-export default function HomePage() {
+// Rebuild at most once a minute so admin edits go live without a redeploy.
+export const revalidate = 60;
+
+export default async function HomePage() {
+  const [packages, bestseller] = await Promise.all([getPackages(), getBestsellerPackage()]);
   return (
     <>
       {/* 1 Header (in layout) → 2 Hero → 3 Trust → 4 Featured → 5 Destinations
@@ -20,9 +25,9 @@ export default function HomePage() {
           → 11 Testimonials → 12 Gallery → 13 CTA → 14 Newsletter → 15 Footer */}
       <Hero />
       <TrustStrip />
-      <FeaturedPackage />
+      <FeaturedPackage pkg={bestseller} />
       <TopDestinations />
-      <PopularPackages />
+      <PopularPackages packages={packages} />
       <Activities />
       <WhyGaash />
       <ServicesOverview />
