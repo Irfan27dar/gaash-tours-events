@@ -8,6 +8,7 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   return (
     <motion.main
+      id="main-content"
       key={pathname}
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}

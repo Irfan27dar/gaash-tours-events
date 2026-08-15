@@ -22,7 +22,7 @@ const config: Config = {
         },
         saffron: {
           DEFAULT: "#FFD200",
-          deep: "#E8B400",
+          deep: "#7D6200", // AA-contrast gold for text/icons on light backgrounds
           soft: "#FFE87A",
         },
         pine: {
