@@ -89,7 +89,7 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="container flex flex-col gap-6 py-7 md:flex-row md:items-center md:justify-between">
           <div className="flex flex-wrap items-center gap-3">
-            <span className="text-xs uppercase tracking-widest text-cloud/40">Recognised by</span>
+            <span className="text-xs uppercase tracking-widest text-cloud/60">Recognised by</span>
             {certifications.map((c) => (
               <span
                 key={c.code}
@@ -101,7 +101,7 @@ export function Footer() {
             ))}
           </div>
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs uppercase tracking-widest text-cloud/40">We accept</span>
+            <span className="text-xs uppercase tracking-widest text-cloud/60">We accept</span>
             {paymentMethods.map((m) => (
               <span
                 key={m}

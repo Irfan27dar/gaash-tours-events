@@ -78,7 +78,7 @@ export function AdminNav({ email }: { email?: string }) {
         >
           <ExternalLink size={16} /> View site
         </Link>
-        {email && <p className="truncate px-2 pt-2 text-xs text-cloud/40">{email}</p>}
+        {email && <p className="truncate px-2 pt-2 text-xs text-cloud/60">{email}</p>}
         <button
           onClick={signOut}
           className="mt-2 flex w-full items-center gap-2 rounded-xl px-2 py-2 text-sm text-cloud/70 hover:bg-white/5 hover:text-cloud"
