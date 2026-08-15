@@ -132,32 +132,32 @@ export function BookingFlow({ pkg }: { pkg: PkgLite }) {
         <h2 className="text-h3 font-display">Your details</h2>
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
           <div className="sm:col-span-2">
-            <label className="text-xs font-semibold text-ink/60">Full name</label>
-            <input className={fieldCls} placeholder="Your name" {...register("name")} />
+            <label htmlFor="bf-name" className="text-xs font-semibold text-ink/60">Full name</label>
+            <input id="bf-name" className={fieldCls} placeholder="Your name" {...register("name")} />
             {errors.name && <p className={errCls}>{errors.name.message}</p>}
           </div>
           <div>
-            <label className="text-xs font-semibold text-ink/60">Email</label>
-            <input type="email" className={fieldCls} placeholder="you@email.com" {...register("email")} />
+            <label htmlFor="bf-email" className="text-xs font-semibold text-ink/60">Email</label>
+            <input id="bf-email" type="email" className={fieldCls} placeholder="you@email.com" {...register("email")} />
             {errors.email && <p className={errCls}>{errors.email.message}</p>}
           </div>
           <div>
-            <label className="text-xs font-semibold text-ink/60">Phone</label>
-            <input className={fieldCls} placeholder="+91 …" {...register("phone")} />
+            <label htmlFor="bf-phone" className="text-xs font-semibold text-ink/60">Phone</label>
+            <input id="bf-phone" className={fieldCls} placeholder="+91 …" {...register("phone")} />
             {errors.phone && <p className={errCls}>{errors.phone.message}</p>}
           </div>
           <div>
-            <label className="text-xs font-semibold text-ink/60">Travel date</label>
-            <input type="date" className={fieldCls} {...register("travelDate")} />
+            <label htmlFor="bf-date" className="text-xs font-semibold text-ink/60">Travel date</label>
+            <input id="bf-date" type="date" className={fieldCls} {...register("travelDate")} />
           </div>
           <div>
-            <label className="text-xs font-semibold text-ink/60">Travellers</label>
-            <input type="number" min={1} max={30} className={fieldCls} {...register("travellers")} />
+            <label htmlFor="bf-travellers" className="text-xs font-semibold text-ink/60">Travellers</label>
+            <input id="bf-travellers" type="number" min={1} max={30} className={fieldCls} {...register("travellers")} />
             {errors.travellers && <p className={errCls}>{errors.travellers.message}</p>}
           </div>
           <div className="sm:col-span-2">
-            <label className="text-xs font-semibold text-ink/60">Notes (optional)</label>
-            <textarea rows={2} className={fieldCls} placeholder="Anything we should know?" {...register("notes")} />
+            <label htmlFor="bf-notes" className="text-xs font-semibold text-ink/60">Notes (optional)</label>
+            <textarea id="bf-notes" rows={2} className={fieldCls} placeholder="Anything we should know?" {...register("notes")} />
           </div>
         </div>
 

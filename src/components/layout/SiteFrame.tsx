@@ -13,6 +13,12 @@ export function SiteFrame({ children }: { children: React.ReactNode }) {
 
   return (
     <>
+      <a
+        href="#main-content"
+        className="sr-only z-[100] focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:rounded-lg focus:bg-ink focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-cloud"
+      >
+        Skip to content
+      </a>
       <Header />
       <PageTransition>{children}</PageTransition>
       <Footer />

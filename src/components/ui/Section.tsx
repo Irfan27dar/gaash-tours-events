@@ -22,14 +22,19 @@ export function SectionHeading({
   title,
   intro,
   align = "left",
+  onDark = false,
   className,
 }: {
   eyebrow?: string;
   title: string;
   intro?: string;
   align?: "left" | "center";
+  onDark?: boolean;
   className?: string;
 }) {
+  // Bright saffron reads on dark; deep gold meets AA contrast on light.
+  const eyebrowColor = onDark ? "text-saffron" : "text-saffron-deep";
+  const dashColor = onDark ? "bg-saffron" : "bg-saffron-deep";
   return (
     <Reveal
       className={cn(
@@ -39,8 +44,8 @@ export function SectionHeading({
       )}
     >
       {eyebrow && (
-        <span className="eyebrow text-saffron-deep">
-          <span className="h-px w-6 bg-saffron-deep" aria-hidden />
+        <span className={cn("eyebrow", eyebrowColor)}>
+          <span className={cn("h-px w-6", dashColor)} aria-hidden />
           {eyebrow}
         </span>
       )}

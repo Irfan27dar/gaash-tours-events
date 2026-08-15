@@ -23,6 +23,7 @@ export function Activities({ activities }: { activities: Activity[] }) {
           eyebrow="Things to do"
           title="Activities & experiences"
           intro="Adventure woven into every itinerary — pick the thrills that make your trip yours."
+          onDark
           className="[&_h2]:text-cloud [&_p]:text-cloud/70"
         />
 
