@@ -1,11 +1,12 @@
-import { featuredDestinations } from "@/data/destinations";
+import type { Destination } from "@/data/destinations";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { DestinationCard } from "@/components/ui/DestinationCard";
 import { RevealGroup, Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 
-export function TopDestinations() {
-  const [first, ...rest] = featuredDestinations;
+export function TopDestinations({ destinations }: { destinations: Destination[] }) {
+  const [first, ...rest] = destinations;
+  if (!first) return null;
   return (
     <Section id="destinations" className="bg-cloud">
       <div className="flex flex-wrap items-end justify-between gap-4">

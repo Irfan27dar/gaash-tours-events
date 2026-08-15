@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { destinations } from "@/data/destinations";
+import { getDestinations } from "@/lib/content";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { DestinationCard } from "@/components/ui/DestinationCard";
 import { RevealGroup, Reveal } from "@/components/ui/Reveal";
@@ -10,7 +10,10 @@ export const metadata: Metadata = {
     "Explore the destinations Gaash covers — Kashmir, Ladakh, Rajasthan, Himachal, Amritsar and the hidden gems in between.",
 };
 
-export default function DestinationsPage() {
+export const revalidate = 60;
+
+export default async function DestinationsPage() {
+  const destinations = await getDestinations();
   return (
     <>
       <PageHeader

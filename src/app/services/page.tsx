@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
-import { services } from "@/data/services";
+import { getServices } from "@/lib/content";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { RevealGroup, Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
+import { Icon } from "@/components/ui/Icon";
+
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "Our Services",
@@ -11,7 +14,8 @@ export const metadata: Metadata = {
     "Flights, hotels, houseboats, vehicle rental, travel insurance, event planning and fully custom packages — one trusted team for the whole trip.",
 };
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const services = await getServices();
   return (
     <>
       <PageHeader
@@ -32,7 +36,7 @@ export default function ServicesPage() {
                   className="group flex h-full scroll-mt-24 flex-col rounded-2xl bg-white p-7 shadow-soft transition-all duration-500 hover:-translate-y-1 hover:shadow-lift"
                 >
                   <span className="grid h-12 w-12 place-items-center rounded-xl bg-ink text-cloud transition-colors duration-500 group-hover:bg-saffron group-hover:text-ink">
-                    <s.icon size={24} aria-hidden />
+                    <Icon name={s.icon} size={24} aria-hidden />
                   </span>
                   <h2 className="mt-5 text-lg font-display font-semibold">{s.title}</h2>
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-ink/65">{s.benefit}</p>

@@ -1,18 +1,8 @@
-import type { LucideIcon } from "lucide-react";
-import {
-  Plane,
-  PartyPopper,
-  Car,
-  Hotel,
-  Ship,
-  ShieldCheck,
-  SlidersHorizontal,
-} from "lucide-react";
-
+// Icons stored as lucide NAMES (see getIcon).
 export type Service = {
   slug: string;
   title: string;
-  icon: LucideIcon;
+  icon: string;
   benefit: string;
   formValue: string;
 };
@@ -21,49 +11,49 @@ export const services: Service[] = [
   {
     slug: "flight-booking",
     title: "Flight Booking",
-    icon: Plane,
+    icon: "Plane",
     benefit: "Best fares on domestic & international flights, ticketed in minutes.",
     formValue: "Flight Booking",
   },
   {
     slug: "event-planning",
     title: "Event Planning",
-    icon: PartyPopper,
+    icon: "PartyPopper",
     benefit: "Weddings, corporate offsites and celebrations, produced end to end.",
     formValue: "Event Planning",
   },
   {
     slug: "vehicle-rental",
     title: "Vehicle Rental & Fleet",
-    icon: Car,
+    icon: "Car",
     benefit: "Clean cars, SUVs and coaches with trusted local drivers.",
     formValue: "Vehicle Rental",
   },
   {
     slug: "hotel-booking",
     title: "Hotel Booking",
-    icon: Hotel,
+    icon: "Hotel",
     benefit: "Handpicked hotels and resorts, personally vetted by our team.",
     formValue: "Hotel Booking",
   },
   {
     slug: "houseboat-stay",
     title: "Houseboat Stay",
-    icon: Ship,
+    icon: "Ship",
     benefit: "Heritage Dal Lake houseboats — the most iconic night in Kashmir.",
     formValue: "Houseboat Stay",
   },
   {
     slug: "travel-insurance",
     title: "Travel Insurance",
-    icon: ShieldCheck,
+    icon: "ShieldCheck",
     benefit: "Peace of mind on every trip, arranged alongside your booking.",
     formValue: "Travel Insurance",
   },
   {
     slug: "customize-package",
     title: "Customise Package",
-    icon: SlidersHorizontal,
+    icon: "SlidersHorizontal",
     benefit: "Tell us your pace, budget and people — we build the trip around you.",
     formValue: "Custom Package",
   },

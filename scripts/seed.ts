@@ -39,7 +39,6 @@ if (!url || !key) {
 }
 
 const supabase = createClient(url, key, { auth: { persistSession: false } });
-const iconName = (icon: unknown) => (icon as { displayName?: string })?.displayName ?? null;
 
 async function upsert(table: string, rows: Record<string, unknown>[], onConflict = "slug") {
   const { error } = await supabase.from(table).upsert(rows, { onConflict });
@@ -109,7 +108,7 @@ async function main() {
     activities.map((a, i) => ({
       slug: a.slug,
       title: a.title,
-      icon: iconName(a.icon),
+      icon: a.icon,
       where_at: a.where,
       season: a.season,
       blurb: a.blurb,
@@ -122,7 +121,7 @@ async function main() {
     services.map((s, i) => ({
       slug: s.slug,
       title: s.title,
-      icon: iconName(s.icon),
+      icon: s.icon,
       benefit: s.benefit,
       sort_order: i,
     }))
@@ -133,7 +132,7 @@ async function main() {
     eventTypes.map((e, i) => ({
       slug: e.slug,
       title: e.title,
-      icon: iconName(e.icon),
+      icon: e.icon,
       blurb: e.blurb,
       sort_order: i,
     }))

@@ -16,7 +16,7 @@ export function PopularPackages({ packages }: { packages: TourPackage[] }) {
     const list = active === "All" ? packages : packages.filter((p) => p.region === active);
     // Bestsellers/featured first, then cap the homepage grid at 6.
     return [...list].sort((a, b) => Number(b.bestseller) - Number(a.bestseller)).slice(0, 6);
-  }, [active]);
+  }, [active, packages]);
 
   return (
     <Section id="packages" className="bg-white">

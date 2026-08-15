@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { MapPin, CalendarDays, ArrowRight } from "lucide-react";
-import { activities } from "@/data/activities";
+import { getActivities } from "@/lib/content";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { RevealGroup, Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
+import { Icon } from "@/components/ui/Icon";
+
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "Activities & Experiences",
@@ -11,7 +14,8 @@ export const metadata: Metadata = {
     "Skiing, gondola rides, rafting, snowboarding, mountain biking, ATV and golfing — the experiences that make a Gaash trip unforgettable.",
 };
 
-export default function ActivitiesPage() {
+export default async function ActivitiesPage() {
+  const activities = await getActivities();
   return (
     <>
       <PageHeader
@@ -32,7 +36,7 @@ export default function ActivitiesPage() {
                   className="group flex h-full scroll-mt-24 gap-5 rounded-2xl bg-white p-6 shadow-soft transition-shadow duration-500 hover:shadow-lift"
                 >
                   <span className="grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-saffron text-ink transition-transform duration-500 group-hover:scale-110">
-                    <a.icon size={26} aria-hidden />
+                    <Icon name={a.icon} size={26} aria-hidden />
                   </span>
                   <div>
                     <h2 className="text-xl font-display font-semibold">{a.title}</h2>

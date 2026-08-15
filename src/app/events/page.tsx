@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
-import { eventsIntro, eventTypes } from "@/data/events";
+import { eventsIntro } from "@/data/events";
+import { getEventTypes } from "@/lib/content";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { RevealGroup, Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
+import { Icon } from "@/components/ui/Icon";
+
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "Events & Celebrations",
@@ -11,7 +15,8 @@ export const metadata: Metadata = {
     "Destination weddings, corporate offsites and private celebrations staged in Kashmir and beyond by the Gaash Events division.",
 };
 
-export default function EventsPage() {
+export default async function EventsPage() {
+  const eventTypes = await getEventTypes();
   return (
     <>
       <PageHeader
@@ -29,7 +34,7 @@ export default function EventsPage() {
               <Reveal key={e.slug}>
                 <article className="flex h-full gap-5 rounded-2xl bg-white p-7 shadow-soft">
                   <span className="grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-pine text-cloud">
-                    <e.icon size={26} aria-hidden />
+                    <Icon name={e.icon} size={26} aria-hidden />
                   </span>
                   <div>
                     <h2 className="text-xl font-display font-semibold">{e.title}</h2>

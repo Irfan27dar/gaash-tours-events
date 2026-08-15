@@ -48,7 +48,7 @@ export function PackagesExplorer({
       }
     });
     return list;
-  }, [region, type, sort]);
+  }, [region, type, sort, packages]);
 
   return (
     <>

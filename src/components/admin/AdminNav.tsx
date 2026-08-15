@@ -2,7 +2,19 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Inbox, CalendarCheck, Package, LogOut, ExternalLink } from "lucide-react";
+import {
+  LayoutDashboard,
+  Inbox,
+  CalendarCheck,
+  Package,
+  MapPin,
+  Compass,
+  Sparkles,
+  PartyPopper,
+  Quote,
+  LogOut,
+  ExternalLink,
+} from "lucide-react";
 import { createSupabaseBrowserClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -12,6 +24,11 @@ const links = [
   { href: "/admin/enquiries", label: "Enquiries", icon: Inbox },
   { href: "/admin/bookings", label: "Bookings", icon: CalendarCheck },
   { href: "/admin/packages", label: "Packages", icon: Package },
+  { href: "/admin/destinations", label: "Destinations", icon: MapPin },
+  { href: "/admin/activities", label: "Activities", icon: Compass },
+  { href: "/admin/services", label: "Services", icon: Sparkles },
+  { href: "/admin/events", label: "Events", icon: PartyPopper },
+  { href: "/admin/testimonials", label: "Testimonials", icon: Quote },
 ];
 
 export function AdminNav({ email }: { email?: string }) {

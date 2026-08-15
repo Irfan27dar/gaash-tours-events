@@ -1,9 +1,10 @@
 import { ArrowUpRight } from "lucide-react";
-import { eventsIntro, eventTypes } from "@/data/events";
+import { eventsIntro, type EventType } from "@/data/events";
 import { Reveal, RevealGroup } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
+import { Icon } from "@/components/ui/Icon";
 
-export function EventsBand() {
+export function EventsBand({ eventTypes }: { eventTypes: EventType[] }) {
   return (
     <section className="bg-pine text-cloud">
       <div className="container grid gap-10 py-16 lg:grid-cols-2 lg:items-center lg:py-24">
@@ -21,7 +22,7 @@ export function EventsBand() {
             <Reveal key={e.slug}>
               <div className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.06] p-6">
                 <span className="grid h-11 w-11 place-items-center rounded-xl bg-saffron text-ink">
-                  <e.icon size={20} aria-hidden />
+                  <Icon name={e.icon} size={20} aria-hidden />
                 </span>
                 <h3 className="mt-4 text-base font-display font-semibold">{e.title}</h3>
                 <p className="mt-1.5 text-sm leading-relaxed text-cloud/70">{e.blurb}</p>

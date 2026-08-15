@@ -11,13 +11,30 @@ import { Testimonials } from "@/components/sections/Testimonials";
 import { Gallery } from "@/components/sections/Gallery";
 import { CTABand } from "@/components/sections/CTABand";
 import { Newsletter } from "@/components/sections/Newsletter";
-import { getPackages, getBestsellerPackage } from "@/lib/content";
+import {
+  getPackages,
+  getBestsellerPackage,
+  getFeaturedDestinations,
+  getActivities,
+  getServices,
+  getEventTypes,
+  getTestimonials,
+} from "@/lib/content";
 
 // Rebuild at most once a minute so admin edits go live without a redeploy.
 export const revalidate = 60;
 
 export default async function HomePage() {
-  const [packages, bestseller] = await Promise.all([getPackages(), getBestsellerPackage()]);
+  const [packages, bestseller, destinations, activities, services, eventTypes, testimonials] =
+    await Promise.all([
+      getPackages(),
+      getBestsellerPackage(),
+      getFeaturedDestinations(),
+      getActivities(),
+      getServices(),
+      getEventTypes(),
+      getTestimonials(),
+    ]);
   return (
     <>
       {/* 1 Header (in layout) → 2 Hero → 3 Trust → 4 Featured → 5 Destinations
@@ -26,13 +43,13 @@ export default async function HomePage() {
       <Hero />
       <TrustStrip />
       <FeaturedPackage pkg={bestseller} />
-      <TopDestinations />
+      <TopDestinations destinations={destinations} />
       <PopularPackages packages={packages} />
-      <Activities />
+      <Activities activities={activities} />
       <WhyGaash />
-      <ServicesOverview />
-      <EventsBand />
-      <Testimonials />
+      <ServicesOverview services={services} />
+      <EventsBand eventTypes={eventTypes} />
+      <Testimonials testimonials={testimonials} />
       <Gallery />
       <CTABand />
       <Newsletter />

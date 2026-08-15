@@ -1,18 +1,9 @@
-import type { LucideIcon } from "lucide-react";
-import {
-  Snowflake,
-  CableCar,
-  Waves,
-  Mountain,
-  Bike,
-  Compass,
-  Flag,
-} from "lucide-react";
-
+// Icons are stored as lucide icon NAMES (strings) so the same shape works
+// from the static seed and from the database. Resolve with getIcon().
 export type Activity = {
   slug: string;
   title: string;
-  icon: LucideIcon;
+  icon: string;
   where: string;
   season: string;
   blurb: string;
@@ -22,7 +13,7 @@ export const activities: Activity[] = [
   {
     slug: "skiing",
     title: "Skiing",
-    icon: Snowflake,
+    icon: "Snowflake",
     where: "Gulmarg",
     season: "Dec – Mar",
     blurb: "Powder runs and one of Asia's highest lift-served ski fields, for first-timers to pros.",
@@ -30,7 +21,7 @@ export const activities: Activity[] = [
   {
     slug: "gondola-ride",
     title: "Gondola Ride",
-    icon: CableCar,
+    icon: "CableCar",
     where: "Gulmarg",
     season: "All year",
     blurb: "Ride the world's second-highest cable car to Apharwat Peak for sweeping Himalayan views.",
@@ -38,7 +29,7 @@ export const activities: Activity[] = [
   {
     slug: "boat-rafting",
     title: "Boat Rafting",
-    icon: Waves,
+    icon: "Waves",
     where: "Pahalgam · Sonmarg",
     season: "Apr – Sep",
     blurb: "White-water thrills down the cold, clear Lidder and Sindh rivers.",
@@ -46,7 +37,7 @@ export const activities: Activity[] = [
   {
     slug: "snowboarding",
     title: "Snowboarding",
-    icon: Mountain,
+    icon: "Mountain",
     where: "Gulmarg",
     season: "Dec – Mar",
     blurb: "Wide, uncrowded slopes and deep snow — a rising favourite for freeriders.",
@@ -54,7 +45,7 @@ export const activities: Activity[] = [
   {
     slug: "mountain-biking",
     title: "Mountain Biking",
-    icon: Bike,
+    icon: "Bike",
     where: "Kashmir · Ladakh",
     season: "May – Sep",
     blurb: "Trails through pine forests and high passes, from gentle valleys to Himalayan epics.",
@@ -62,7 +53,7 @@ export const activities: Activity[] = [
   {
     slug: "atv",
     title: "ATV Rides",
-    icon: Compass,
+    icon: "Compass",
     where: "Gulmarg · Sonmarg",
     season: "Apr – Oct",
     blurb: "Quad-bike across meadows and rugged tracks for an adrenaline-packed hour.",
@@ -70,7 +61,7 @@ export const activities: Activity[] = [
   {
     slug: "golfing",
     title: "Golfing",
-    icon: Flag,
+    icon: "Flag",
     where: "Srinagar · Gulmarg · Pahalgam",
     season: "Apr – Oct",
     blurb: "Tee off on lush, high-altitude greens framed by snow-dusted peaks.",

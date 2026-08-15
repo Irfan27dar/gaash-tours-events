@@ -3,8 +3,8 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Sparkles, Compass, CalendarDays, Clock, ArrowRight } from "lucide-react";
-import { destinations, getDestination } from "@/data/destinations";
-import { packages } from "@/data/packages";
+import { destinations as staticDestinations } from "@/data/destinations";
+import { getDestination, getPackages } from "@/lib/content";
 import { img } from "@/lib/images";
 import { site } from "@/data/site";
 import { PageHeader } from "@/components/ui/PageHeader";
@@ -12,12 +12,14 @@ import { Reveal, RevealGroup } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { PackageCard } from "@/components/ui/PackageCard";
 
+export const revalidate = 60;
+
 export function generateStaticParams() {
-  return destinations.map((d) => ({ slug: d.slug }));
+  return staticDestinations.map((d) => ({ slug: d.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const d = getDestination(params.slug);
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const d = await getDestination(params.slug);
   if (!d) return {};
   return {
     title: `${d.name} Tours`,
@@ -26,11 +28,12 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function DestinationPage({ params }: { params: { slug: string } }) {
-  const d = getDestination(params.slug);
+export default async function DestinationPage({ params }: { params: { slug: string } }) {
+  const d = await getDestination(params.slug);
   if (!d) notFound();
 
-  const trips = packages.filter((p) => p.region === d.name || p.route.includes(d.name)).slice(0, 3);
+  const allPackages = await getPackages();
+  const trips = allPackages.filter((p) => p.region === d.name || p.route.includes(d.name)).slice(0, 3);
 
   return (
     <>

@@ -6,6 +6,11 @@ import {
   packageTypes as staticTypes,
   type TourPackage,
 } from "@/data/packages";
+import { destinations as staticDestinations, type Destination } from "@/data/destinations";
+import { activities as staticActivities, type Activity } from "@/data/activities";
+import { services as staticServices, type Service } from "@/data/services";
+import { eventTypes as staticEventTypes, type EventType } from "@/data/events";
+import { testimonials as staticTestimonials, type Testimonial } from "@/data/testimonials";
 import type { ImageKey } from "./images";
 
 /**
@@ -108,4 +113,91 @@ export async function getPackageFilters() {
     regions: Array.from(new Set(all.map((p) => p.region))),
     types: Array.from(new Set(all.map((p) => p.type))),
   };
+}
+
+// ── Destinations ─────────────────────────────────────────────
+type DestinationRow = {
+  slug: string; name: string; region: string; image: string; gallery: string[] | null;
+  tagline: string | null; blurb: string | null; best_time: string | null; ideal_days: string | null;
+  rating: number | null; from_price: number | null; highlights: string[] | null;
+  experiences: string[] | null; featured: boolean;
+};
+function rowToDestination(r: DestinationRow): Destination {
+  return {
+    slug: r.slug, name: r.name, region: r.region, image: (r.image as ImageKey) ?? "hero",
+    gallery: (r.gallery ?? []) as ImageKey[], tagline: r.tagline ?? "", blurb: r.blurb ?? "",
+    bestTime: r.best_time ?? "", idealDays: r.ideal_days ?? "", rating: Number(r.rating ?? 4.8),
+    fromPrice: r.from_price ?? 0, highlights: r.highlights ?? [], experiences: r.experiences ?? [],
+    featured: r.featured,
+  };
+}
+export async function getDestinations(): Promise<Destination[]> {
+  if (!isSupabaseConfigured) return staticDestinations;
+  try {
+    const supabase = createSupabasePublicClient();
+    const { data, error } = await supabase.from("destinations").select("*").eq("published", true).order("sort_order");
+    if (error || !data?.length) return staticDestinations;
+    return (data as DestinationRow[]).map(rowToDestination);
+  } catch { return staticDestinations; }
+}
+export async function getFeaturedDestinations(): Promise<Destination[]> {
+  return (await getDestinations()).filter((d) => d.featured);
+}
+export async function getDestination(slug: string): Promise<Destination | undefined> {
+  return (await getDestinations()).find((d) => d.slug === slug);
+}
+
+// ── Activities ───────────────────────────────────────────────
+type ActivityRow = { slug: string; title: string; icon: string | null; where_at: string | null; season: string | null; blurb: string | null };
+export async function getActivities(): Promise<Activity[]> {
+  if (!isSupabaseConfigured) return staticActivities;
+  try {
+    const supabase = createSupabasePublicClient();
+    const { data, error } = await supabase.from("activities").select("*").eq("published", true).order("sort_order");
+    if (error || !data?.length) return staticActivities;
+    return (data as ActivityRow[]).map((r) => ({
+      slug: r.slug, title: r.title, icon: r.icon ?? "Sparkles",
+      where: r.where_at ?? "", season: r.season ?? "", blurb: r.blurb ?? "",
+    }));
+  } catch { return staticActivities; }
+}
+
+// ── Services ─────────────────────────────────────────────────
+type ServiceRow = { slug: string; title: string; icon: string | null; benefit: string | null };
+export async function getServices(): Promise<Service[]> {
+  if (!isSupabaseConfigured) return staticServices;
+  try {
+    const supabase = createSupabasePublicClient();
+    const { data, error } = await supabase.from("services").select("*").eq("published", true).order("sort_order");
+    if (error || !data?.length) return staticServices;
+    return (data as ServiceRow[]).map((r) => ({
+      slug: r.slug, title: r.title, icon: r.icon ?? "Sparkles", benefit: r.benefit ?? "", formValue: r.title,
+    }));
+  } catch { return staticServices; }
+}
+
+// ── Event types ──────────────────────────────────────────────
+type EventTypeRow = { slug: string; title: string; icon: string | null; blurb: string | null };
+export async function getEventTypes(): Promise<EventType[]> {
+  if (!isSupabaseConfigured) return staticEventTypes;
+  try {
+    const supabase = createSupabasePublicClient();
+    const { data, error } = await supabase.from("event_types").select("*").eq("published", true).order("sort_order");
+    if (error || !data?.length) return staticEventTypes;
+    return (data as EventTypeRow[]).map((r) => ({ slug: r.slug, title: r.title, icon: r.icon ?? "Sparkles", blurb: r.blurb ?? "" }));
+  } catch { return staticEventTypes; }
+}
+
+// ── Testimonials ─────────────────────────────────────────────
+type TestimonialRow = { name: string; location: string | null; trip: string | null; rating: number; quote: string };
+export async function getTestimonials(): Promise<Testimonial[]> {
+  if (!isSupabaseConfigured) return staticTestimonials;
+  try {
+    const supabase = createSupabasePublicClient();
+    const { data, error } = await supabase.from("testimonials").select("*").eq("published", true).order("sort_order");
+    if (error || !data?.length) return staticTestimonials;
+    return (data as TestimonialRow[]).map((r) => ({
+      name: r.name, location: r.location ?? "", trip: r.trip ?? "", rating: r.rating, quote: r.quote,
+    }));
+  } catch { return staticTestimonials; }
 }

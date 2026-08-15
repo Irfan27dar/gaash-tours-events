@@ -32,4 +32,6 @@ export const images = {
 
 export type ImageKey = keyof typeof images;
 
+export const imageKeys = Object.keys(images) as ImageKey[];
+
 export const img = (key: ImageKey): StaticImageData => images[key];
