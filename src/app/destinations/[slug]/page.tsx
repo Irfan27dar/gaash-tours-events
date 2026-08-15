@@ -147,7 +147,7 @@ function Fact({
         <Icon size={20} aria-hidden />
       </span>
       <div>
-        <p className="text-xs font-semibold uppercase tracking-wider text-ink/45">{label}</p>
+        <p className="text-xs font-semibold uppercase tracking-wider text-ink/60">{label}</p>
         <p className="mt-0.5 font-medium text-ink">{value}</p>
       </div>
     </Reveal>

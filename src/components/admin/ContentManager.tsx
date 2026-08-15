@@ -65,7 +65,7 @@ export function ContentManager({
           />
         ))}
         {rows.length === 0 && (
-          <p className="rounded-2xl border border-dashed border-line bg-white p-10 text-center text-ink/50">
+          <p className="rounded-2xl border border-dashed border-line bg-white p-10 text-center text-ink/60">
             No {itemLabel.toLowerCase()}s yet — add one above.
           </p>
         )}
@@ -129,7 +129,7 @@ function ContentRow({
       <div className="grid gap-3 sm:grid-cols-2">
         {fields.map((f) => (
           <div key={f.key} className={f.colSpan === 2 || f.type === "textarea" ? "sm:col-span-2" : ""}>
-            <label className="text-xs font-semibold text-ink/55">{f.label}</label>
+            <label className="text-xs font-semibold text-ink/60">{f.label}</label>
             {f.type === "boolean" ? (
               <label className="mt-1 flex cursor-pointer items-center gap-2 text-sm">
                 <input
@@ -174,7 +174,7 @@ function ContentRow({
           onClick={() => set("published", !published)}
           className={cn(
             "inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium",
-            published ? "border-green-300 bg-green-50 text-green-700" : "border-line bg-cloud text-ink/50"
+            published ? "border-green-300 bg-green-50 text-green-700" : "border-line bg-cloud text-ink/60"
           )}
         >
           {published ? <Eye size={13} /> : <EyeOff size={13} />} {published ? "Live" : "Hidden"}

@@ -198,7 +198,7 @@ export function BookingFlow({ pkg }: { pkg: PkgLite }) {
             </>
           )}
         </Button>
-        <p className="mt-3 flex items-center gap-1.5 text-xs text-ink/45">
+        <p className="mt-3 flex items-center gap-1.5 text-xs text-ink/60">
           <ShieldCheck size={14} /> Secure checkout. Your details are encrypted.
         </p>
       </form>
@@ -211,7 +211,7 @@ export function BookingFlow({ pkg }: { pkg: PkgLite }) {
           </div>
           <div>
             <h3 className="font-display font-semibold leading-tight">{pkg.title}</h3>
-            <p className="mt-1 text-xs text-ink/55">{pkg.route}</p>
+            <p className="mt-1 text-xs text-ink/60">{pkg.route}</p>
           </div>
         </div>
 
@@ -237,7 +237,7 @@ export function BookingFlow({ pkg }: { pkg: PkgLite }) {
             <dd className="text-xl font-display font-bold text-ink">{inr(payNow)}</dd>
           </div>
         </dl>
-        <p className="mt-3 text-[0.7rem] italic text-ink/40">
+        <p className="mt-3 text-[0.7rem] italic text-ink/60">
           Indicative pricing — a travel expert confirms the final quote after booking.
         </p>
       </aside>
@@ -248,8 +248,8 @@ export function BookingFlow({ pkg }: { pkg: PkgLite }) {
 function Row({ label, value, strong, muted }: { label: string; value: string; strong?: boolean; muted?: boolean }) {
   return (
     <div className="flex items-center justify-between">
-      <dt className={cn("text-ink/60", muted && "text-ink/40")}>{label}</dt>
-      <dd className={cn(strong ? "font-semibold" : "", muted && "text-ink/40")}>{value}</dd>
+      <dt className={cn("text-ink/60", muted && "text-ink/60")}>{label}</dt>
+      <dd className={cn(strong ? "font-semibold" : "", muted && "text-ink/60")}>{value}</dd>
     </div>
   );
 }
@@ -280,7 +280,7 @@ function PayOption({
         <span className="font-semibold">{label}</span>
         <input type="radio" value={value} className="accent-ink" {...register("paymentOption")} />
       </span>
-      <span className="mt-0.5 text-xs text-ink/55">{desc}</span>
+      <span className="mt-0.5 text-xs text-ink/60">{desc}</span>
       <span className="mt-2 text-lg font-display font-bold">{amount}</span>
     </label>
   );

@@ -40,7 +40,7 @@ export default async function ActivitiesPage() {
                   </span>
                   <div>
                     <h2 className="text-xl font-display font-semibold">{a.title}</h2>
-                    <div className="mt-1.5 flex flex-wrap gap-x-4 gap-y-1 text-xs font-medium text-ink/55">
+                    <div className="mt-1.5 flex flex-wrap gap-x-4 gap-y-1 text-xs font-medium text-ink/60">
                       <span className="inline-flex items-center gap-1.5">
                         <MapPin size={13} className="text-saffron-deep" aria-hidden /> {a.where}
                       </span>

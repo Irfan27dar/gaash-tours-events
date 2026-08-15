@@ -13,7 +13,7 @@ export default function Loading() {
           priority
           className="animate-pulse"
         />
-        <span className="text-xs font-semibold uppercase tracking-[0.3em] text-ink/50">
+        <span className="text-xs font-semibold uppercase tracking-[0.3em] text-ink/60">
           Gaash Tours &amp; Events
         </span>
       </div>

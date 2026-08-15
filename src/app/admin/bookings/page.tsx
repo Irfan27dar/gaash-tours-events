@@ -26,7 +26,7 @@ export default async function BookingsPage() {
       ) : (
         <div className="overflow-x-auto rounded-2xl border border-line bg-white shadow-soft">
           <table className="w-full min-w-[820px] text-sm">
-            <thead className="bg-cloud text-left text-xs uppercase tracking-wider text-ink/50">
+            <thead className="bg-cloud text-left text-xs uppercase tracking-wider text-ink/60">
               <tr>
                 <th className="p-3">Ref</th>
                 <th className="p-3">Booked</th>
@@ -43,11 +43,11 @@ export default async function BookingsPage() {
                   <td className="whitespace-nowrap p-3 text-ink/60">{fmtDate(b.created_at)}</td>
                   <td className="p-3">
                     <span className="font-medium">{b.customer_name}</span>
-                    <span className="block text-xs text-ink/50">{b.phone}</span>
+                    <span className="block text-xs text-ink/60">{b.phone}</span>
                   </td>
                   <td className="p-3 text-ink/70">
                     {b.package_title || "—"}
-                    {b.travel_date && <span className="block text-xs text-ink/45">{fmtDate(b.travel_date)}</span>}
+                    {b.travel_date && <span className="block text-xs text-ink/60">{fmtDate(b.travel_date)}</span>}
                   </td>
                   <td className="whitespace-nowrap p-3 font-semibold">₹{(b.amount ?? 0).toLocaleString("en-IN")}</td>
                   <td className="p-3">

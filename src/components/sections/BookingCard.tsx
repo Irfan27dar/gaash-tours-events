@@ -13,18 +13,18 @@ export function BookingCard({ pkg }: { pkg: TourPackage }) {
     <div className="rounded-2xl border border-line bg-white p-6 shadow-soft">
       <div className="flex items-end justify-between">
         <div>
-          <p className="text-sm text-ink/45 line-through">{inr(pkg.oldPrice)}</p>
+          <p className="text-sm text-ink/60 line-through">{inr(pkg.oldPrice)}</p>
           <p className="text-3xl font-display font-bold text-ink">
             {inr(pkg.price)}
           </p>
-          <p className="text-xs text-ink/50">per person · twin sharing</p>
+          <p className="text-xs text-ink/60">per person · twin sharing</p>
         </div>
         <span className="rounded-full bg-saffron px-3 py-1 text-xs font-bold text-ink">
           Save {inr(save)}
         </span>
       </div>
 
-      <p className="mt-2 text-[0.7rem] italic text-ink/40">Indicative price — confirmed on enquiry.</p>
+      <p className="mt-2 text-[0.7rem] italic text-ink/60">Indicative price — confirmed on enquiry.</p>
 
       <ul className="mt-5 space-y-2.5 border-t border-line pt-5 text-sm text-ink/70">
         <li className="flex items-center gap-2.5">
@@ -57,7 +57,7 @@ export function BookingCard({ pkg }: { pkg: TourPackage }) {
           <MessageCircle size={16} /> Ask on WhatsApp
         </Button>
       </div>
-      <p className="mt-4 text-center text-xs text-ink/50">
+      <p className="mt-4 text-center text-xs text-ink/60">
         Or call{" "}
         <a href={`tel:+91${site.phones[0]}`} className="font-semibold text-ink hover:text-saffron-deep">
           +91 {site.phones[0]}

@@ -93,7 +93,7 @@ export default async function BookingConfirmation({ params }: { params: { id: st
           </div>
         </div>
 
-        <p className="mt-6 text-center text-sm text-ink/50">
+        <p className="mt-6 text-center text-sm text-ink/60">
           Need changes? <Link href="/contact" className="font-semibold text-saffron-deep hover:underline">Contact us</Link>
         </p>
       </div>

@@ -4,7 +4,7 @@ export function AdminHeader({ title, subtitle }: { title: string; subtitle?: str
   return (
     <div className="mb-6">
       <h1 className="text-2xl font-display font-bold text-ink">{title}</h1>
-      {subtitle && <p className="mt-1 text-sm text-ink/55">{subtitle}</p>}
+      {subtitle && <p className="mt-1 text-sm text-ink/60">{subtitle}</p>}
     </div>
   );
 }
@@ -16,9 +16,9 @@ export function AdminPage({ children }: { children: React.ReactNode }) {
 export function StatCard({ label, value, hint }: { label: string; value: string | number; hint?: string }) {
   return (
     <div className="rounded-2xl border border-line bg-white p-5 shadow-soft">
-      <p className="text-xs font-semibold uppercase tracking-wider text-ink/45">{label}</p>
+      <p className="text-xs font-semibold uppercase tracking-wider text-ink/60">{label}</p>
       <p className="mt-2 text-3xl font-display font-bold text-ink">{value}</p>
-      {hint && <p className="mt-1 text-xs text-ink/50">{hint}</p>}
+      {hint && <p className="mt-1 text-xs text-ink/60">{hint}</p>}
     </div>
   );
 }
@@ -44,7 +44,7 @@ export function StatusPill({ status }: { status: string }) {
 
 export function EmptyState({ message }: { message: string }) {
   return (
-    <div className="rounded-2xl border border-dashed border-line bg-white p-12 text-center text-ink/50">
+    <div className="rounded-2xl border border-dashed border-line bg-white p-12 text-center text-ink/60">
       {message}
     </div>
   );

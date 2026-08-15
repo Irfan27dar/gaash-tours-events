@@ -51,11 +51,11 @@ export function PackageEditRow({ pkg }: { pkg: Pkg }) {
     <tr className="border-t border-line align-middle">
       <td className="p-3">
         <p className="font-medium">{pkg.title}</p>
-        <p className="text-xs text-ink/50">{pkg.region}</p>
+        <p className="text-xs text-ink/60">{pkg.region}</p>
       </td>
       <td className="p-3">
         <label className="flex items-center gap-1 text-sm">
-          <span className="text-ink/40">₹</span>
+          <span className="text-ink/60">₹</span>
           <input
             type="number"
             value={price}
@@ -66,7 +66,7 @@ export function PackageEditRow({ pkg }: { pkg: Pkg }) {
       </td>
       <td className="p-3">
         <label className="flex items-center gap-1 text-sm">
-          <span className="text-ink/40">₹</span>
+          <span className="text-ink/60">₹</span>
           <input
             type="number"
             value={oldPrice}
@@ -129,7 +129,7 @@ function Toggle({
       onClick={onClick}
       className={cn(
         "inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium transition-colors",
-        active ? "border-saffron bg-saffron text-ink" : "border-line bg-white text-ink/50"
+        active ? "border-saffron bg-saffron text-ink" : "border-line bg-white text-ink/60"
       )}
     >
       {icon && <Star size={11} className={active ? "fill-ink" : ""} />}

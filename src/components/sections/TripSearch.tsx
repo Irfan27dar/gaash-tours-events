@@ -93,7 +93,7 @@ function Field({
         {icon}
       </span>
       <span className="flex min-w-0 flex-col">
-        <span className="text-[0.65rem] font-semibold uppercase tracking-wider text-ink/50">{label}</span>
+        <span className="text-[0.65rem] font-semibold uppercase tracking-wider text-ink/60">{label}</span>
         {children}
       </span>
     </label>

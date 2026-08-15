@@ -25,7 +25,11 @@ export function Logo({
   const textColor = variant === "dark" ? "text-cloud" : "text-ink";
 
   return (
-    <Link href="/" className={cn("group inline-flex items-center gap-2.5", className)} aria-label={`${site.name} — home`}>
+    <Link
+      href="/"
+      className={cn("group inline-flex items-center gap-2.5", className)}
+      aria-label={withWordmark ? undefined : `${site.name} — home`}
+    >
       <Image
         src={src}
         alt=""

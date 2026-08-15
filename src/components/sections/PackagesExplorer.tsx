@@ -57,7 +57,7 @@ export function PackagesExplorer({
           <FilterRow label="Region" active={region} setActive={setRegion} options={["All", ...regions]} />
           <FilterRow label="Type" active={type} setActive={setType} options={["All", ...types]} />
           <label className="ml-auto flex items-center gap-2 text-sm">
-            <SlidersHorizontal size={15} className="text-ink/50" aria-hidden />
+            <SlidersHorizontal size={15} className="text-ink/60" aria-hidden />
             <span className="sr-only">Sort by</span>
             <select
               value={sort}
@@ -74,7 +74,7 @@ export function PackagesExplorer({
         </div>
       </div>
 
-      <p className="mt-6 text-sm text-ink/55">
+      <p className="mt-6 text-sm text-ink/60">
         {shown.length} {shown.length === 1 ? "trip" : "trips"}
       </p>
 
@@ -96,7 +96,7 @@ export function PackagesExplorer({
       </motion.div>
 
       {shown.length === 0 && (
-        <p className="py-16 text-center text-ink/50">No trips match those filters yet — try widening your search.</p>
+        <p className="py-16 text-center text-ink/60">No trips match those filters yet — try widening your search.</p>
       )}
     </>
   );
@@ -115,7 +115,7 @@ function FilterRow({
 }) {
   return (
     <div className="flex items-center gap-2">
-      <span className="text-xs font-semibold uppercase tracking-wider text-ink/40">{label}</span>
+      <span className="text-xs font-semibold uppercase tracking-wider text-ink/60">{label}</span>
       <div className="flex flex-wrap gap-1.5">
         {options.map((o) => (
           <button

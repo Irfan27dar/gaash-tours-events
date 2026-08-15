@@ -43,7 +43,7 @@ export default function AdminLogin() {
         <div className="flex flex-col items-center text-center">
           <Image src={symbol} alt="Gaash" width={56} height={56} />
           <h1 className="mt-4 text-h3 font-display">Admin sign in</h1>
-          <p className="mt-1 text-sm text-ink/55">Gaash Tours &amp; Events control panel</p>
+          <p className="mt-1 text-sm text-ink/60">Gaash Tours &amp; Events control panel</p>
         </div>
 
         {!isSupabaseConfigured ? (

@@ -26,7 +26,7 @@ export default async function EnquiriesPage() {
       ) : (
         <div className="overflow-x-auto rounded-2xl border border-line bg-white shadow-soft">
           <table className="w-full min-w-[820px] text-sm">
-            <thead className="bg-cloud text-left text-xs uppercase tracking-wider text-ink/50">
+            <thead className="bg-cloud text-left text-xs uppercase tracking-wider text-ink/60">
               <tr>
                 <th className="p-3">Received</th>
                 <th className="p-3">Name</th>
@@ -45,14 +45,14 @@ export default async function EnquiriesPage() {
                     <a href={`tel:+91${e.phone}`} className="block hover:text-saffron-deep">
                       {e.phone}
                     </a>
-                    <a href={`mailto:${e.email}`} className="block text-xs text-ink/50 hover:text-saffron-deep">
+                    <a href={`mailto:${e.email}`} className="block text-xs text-ink/60 hover:text-saffron-deep">
                       {e.email}
                     </a>
                   </td>
                   <td className="p-3 text-ink/70">
                     {e.package_title || e.destination || "—"}
-                    {e.travel_date && <span className="block text-xs text-ink/45">{fmtDate(e.travel_date)}</span>}
-                    {e.travellers && <span className="block text-xs text-ink/45">{e.travellers} travellers</span>}
+                    {e.travel_date && <span className="block text-xs text-ink/60">{fmtDate(e.travel_date)}</span>}
+                    {e.travellers && <span className="block text-xs text-ink/60">{e.travellers} travellers</span>}
                   </td>
                   <td className="max-w-[16rem] p-3 text-xs text-ink/60">{e.message || "—"}</td>
                   <td className="p-3">

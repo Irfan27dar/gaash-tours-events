@@ -121,7 +121,12 @@ export function Footer() {
           </p>
           <p>
             Local Kashmiri experts since {site.established} · A{" "}
-            <a href={site.eventsUrl} target="_blank" rel="noopener noreferrer" className="text-cloud/70 hover:text-saffron">
+            <a
+              href={site.eventsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-cloud/70 underline hover:text-saffron"
+            >
               Gaash Events
             </a>{" "}
             company

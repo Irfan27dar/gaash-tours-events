@@ -27,7 +27,7 @@ export default async function AdminPackagesPage() {
       ) : (
         <div className="overflow-x-auto rounded-2xl border border-line bg-white shadow-soft">
           <table className="w-full min-w-[860px] text-sm">
-            <thead className="bg-cloud text-left text-xs uppercase tracking-wider text-ink/50">
+            <thead className="bg-cloud text-left text-xs uppercase tracking-wider text-ink/60">
               <tr>
                 <th className="p-3">Package</th>
                 <th className="p-3">Price</th>

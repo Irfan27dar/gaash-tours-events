@@ -106,7 +106,7 @@ export default function AboutPage() {
 
           {/* Certifications */}
           <Reveal className="mt-12 flex flex-wrap items-center justify-center gap-3">
-            <span className="text-xs font-semibold uppercase tracking-widest text-ink/40">Recognised by</span>
+            <span className="text-xs font-semibold uppercase tracking-widest text-ink/60">Recognised by</span>
             {certifications.map((c) => (
               <span key={c.code} title={c.note} className="rounded-full border border-line px-4 py-2 text-sm font-bold text-ink/75">
                 {c.label}

@@ -43,7 +43,7 @@ export default async function AdminDashboard() {
         {recent.data && recent.data.length > 0 ? (
           <div className="overflow-hidden rounded-2xl border border-line bg-white shadow-soft">
             <table className="w-full text-sm">
-              <thead className="bg-cloud text-left text-xs uppercase tracking-wider text-ink/50">
+              <thead className="bg-cloud text-left text-xs uppercase tracking-wider text-ink/60">
                 <tr>
                   <th className="p-3">Name</th>
                   <th className="p-3">Destination</th>

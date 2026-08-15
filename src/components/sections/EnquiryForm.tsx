@@ -48,7 +48,7 @@ export function EnquiryForm({
     "w-full rounded-xl border px-4 py-3 text-sm outline-none transition-colors",
     dark
       ? "border-white/15 bg-white/10 text-cloud placeholder:text-cloud/50 focus:border-saffron"
-      : "border-line bg-white text-ink placeholder:text-ink/40 focus:border-ink"
+      : "border-line bg-white text-ink placeholder:text-ink/60 focus:border-ink"
   );
   const labelBase = cn("text-xs font-semibold", dark ? "text-cloud/70" : "text-ink/60");
   const errBase = "mt-1 text-xs text-red-400";

@@ -38,7 +38,7 @@ export function StatusSelect({
           </option>
         ))}
       </select>
-      {pending && <Loader2 size={14} className="animate-spin text-ink/40" />}
+      {pending && <Loader2 size={14} className="animate-spin text-ink/60" />}
     </span>
   );
 }

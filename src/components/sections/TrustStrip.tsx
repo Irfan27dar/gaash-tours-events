@@ -23,13 +23,13 @@ export function TrustStrip() {
                   />
                 )}
               </dt>
-              <dd className="mt-1 text-xs font-medium text-ink/55">{s.label}</dd>
+              <dd className="mt-1 text-xs font-medium text-ink/60">{s.label}</dd>
             </Reveal>
           ))}
         </dl>
 
         <Reveal delay={0.1} className="flex flex-wrap items-center justify-center gap-3 lg:justify-end">
-          <span className="text-xs font-semibold uppercase tracking-widest text-ink/40">
+          <span className="text-xs font-semibold uppercase tracking-widest text-ink/60">
             Recognised by
           </span>
           {certifications.map((c) => (

@@ -36,7 +36,7 @@ export function PackageCard({ pkg, className }: { pkg: TourPackage; className?: 
       </div>
 
       <div className="flex flex-1 flex-col p-5">
-        <div className="flex items-center gap-2 text-xs font-medium text-ink/55">
+        <div className="flex items-center gap-2 text-xs font-medium text-ink/60">
           <MapPin size={13} className="text-saffron-deep" aria-hidden />
           {pkg.region}
         </div>
@@ -57,11 +57,11 @@ export function PackageCard({ pkg, className }: { pkg: TourPackage; className?: 
         <div className="mt-4 flex items-end justify-between border-t border-line pt-4">
           <div>
             <Stars rating={pkg.rating} reviews={pkg.reviews} />
-            <p className="mt-1.5 text-xs text-ink/50">
-              <span className="text-ink/40 line-through">{inr(pkg.oldPrice)}</span> from
+            <p className="mt-1.5 text-xs text-ink/60">
+              <span className="text-ink/60 line-through">{inr(pkg.oldPrice)}</span> from
             </p>
             <p className="text-lg font-bold text-ink">
-              {inr(pkg.price)} <span className="text-xs font-normal text-ink/50">/ person</span>
+              {inr(pkg.price)} <span className="text-xs font-normal text-ink/60">/ person</span>
             </p>
           </div>
           <span className="inline-flex items-center gap-1 text-sm font-semibold text-saffron-deep transition-transform duration-300 group-hover:translate-x-0.5">

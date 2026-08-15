@@ -40,7 +40,7 @@ export function Newsletter() {
               type="email"
               required
               placeholder="you@email.com"
-              className="h-14 flex-1 rounded-full border border-ink/15 bg-cloud px-5 text-sm text-ink outline-none placeholder:text-ink/40 focus:border-ink"
+              className="h-14 flex-1 rounded-full border border-ink/15 bg-cloud px-5 text-sm text-ink outline-none placeholder:text-ink/60 focus:border-ink"
             />
             <Button type="submit" size="lg" variant="ink">
               Subscribe
