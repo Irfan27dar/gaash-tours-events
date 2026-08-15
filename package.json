@@ -8,7 +8,8 @@
     "start": "next start -p 3700",
     "lint": "next lint",
     "format": "prettier --write .",
-    "seed": "tsx scripts/seed.ts"
+    "seed": "tsx scripts/seed.ts",
+    "check-db": "tsx scripts/check-db.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
