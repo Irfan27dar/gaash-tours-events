@@ -42,16 +42,19 @@ export function BookingCard({ pkg }: { pkg: TourPackage }) {
       </ul>
 
       <div className="mt-6 flex flex-col gap-3">
-        <Button href="#enquire" size="lg" className="w-full">
-          Book / Enquire
+        <Button href={`/packages/${pkg.slug}/book`} size="lg" className="w-full">
+          Book this trip
+        </Button>
+        <Button href="#enquire" size="lg" variant="outline" className="w-full">
+          Enquire first
         </Button>
         <Button
           href={`${site.whatsapp.href}?text=${encodeURIComponent(`Hi Gaash, I'm interested in the "${pkg.title}" package.`)}`}
-          size="lg"
-          variant="outline"
+          size="sm"
+          variant="ghost"
           className="w-full"
         >
-          <MessageCircle size={18} /> Ask on WhatsApp
+          <MessageCircle size={16} /> Ask on WhatsApp
         </Button>
       </div>
       <p className="mt-4 text-center text-xs text-ink/50">
